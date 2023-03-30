@@ -1,18 +1,18 @@
-const express=require('express');
-const mongoose=require('mongoose');
-const app=express();
-const model=require('./Schema/Signup');
-const cors=require('cors');
-const bodyparser=require('body-parser');
-app.use(cors);
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: true }));
+import express from "express";
 
-app.get("/api", (req, res) => {
-    res.send('Hi Welcome to the Login and Signup API');
-  });
-    
+import bodyParser from "body-parser";
+import cors from "cors";
 
+// const model=require('./Schema/Signup');
+const app = express();
+app.use(cors({ credentials: true }));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+
+app.get("/",(req,res)=>
+{
+    res.send("hello")
+})
 // app.post('/data',(req,res)=>{
 //     const newUser=new model({
 //         mail:req.body.email,
@@ -53,8 +53,6 @@ app.get("/api", (req, res) => {
 //     console.log(err);
 // })
 
-app.listen(2000,()=>{
-    console.log("The port is running at 2000");
-})
-
-
+app.listen(2000, () => {
+  console.log("The port is running at 2000");
+});

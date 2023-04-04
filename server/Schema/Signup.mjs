@@ -1,4 +1,5 @@
-const mongoose=require('mongoose');
+// const mongoose=require('mongoose');
+import mongoose from "mongoose";
 
 const signup=mongoose.Schema({
     mail:{
@@ -19,4 +20,4 @@ const signup=mongoose.Schema({
     }
 }
 )
-module.exports=SignUp=mongoose.model('signup',signup);
+export default signupModel = new mongoose.model("signup", signup);
